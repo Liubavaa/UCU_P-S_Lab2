@@ -373,6 +373,7 @@ k_sum
 ```{r}
 mean(k_sum>=1)
 ```
+### Summarizing, CLT is correct and the most accurate method to estimate bounds for probability of sum of r.v.
 
 ### General summary and conclusions
 
