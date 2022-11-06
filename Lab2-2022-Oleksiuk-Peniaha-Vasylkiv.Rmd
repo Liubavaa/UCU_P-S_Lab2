@@ -337,6 +337,25 @@ s
 ```
 
 ### Obtain the theoretical bounds on N using the Markov and Chebyshev inequality, Central Limit Theorem and compare the results
+### Obtain the theoretical bounds on N using the Markov and Chebyshev inequality, Central Limit Theorem and compare the results
+
+#### By Markov's inequality $P(S_{100} \ge 1) \le \frac{E(S_{100})}{1}$
+
+#### Also $P(S_{100} \ge 1) \ge 0.95$
+
+#### Thus $\frac{E(S_{100})}{1} \gt 0.95$ -\> $E(S_{100}) \gt 0.95$
+
+#### As $E(S_{100}) = E(X_1 + X_2 + ... + X_100) = E(X_1) + ... + E(X_100) = 100 * E(X_1) = \frac{100}{\lambda*N}$
+
+#### Thus $\frac{100}{\lambda N} \gt 0.95$ -\> $N \lt \frac{100}{\lambda*0.95} = \frac{100}{33*0.95} = 3.2$ -\> $N = 3$
+
+#### By Chebyshev's inequality $P(S_{100} - 100*\frac{1}{\lambda*N}\ge 1 - 100*\frac{1}{\lambda*N}) \le (\frac{\frac{1}{\lambda*N}}{1 - 100*\frac{1}{\lambda*N}})^2$
+
+#### Also $P(S_{100} \ge 1) \ge 0.95$
+
+#### Thus $(\frac{\frac{10}{\lambda*N}}{1 - 100*\frac{1}{\lambda*N}})^2 \gt 0.95$ -\> $N \lt 3.3$ -\> $N = 3$
+
+#### By One-side Chebyshev's inequality $N \lt 3.09$ -\> $N = 3$
 
 #### By CLT $P(S_{100} \ge 1) = 1-P(S_{100} \le 1) = 1-P(S_{100} \le 1) = 1-P(\frac{S_{100}-\frac{100}{\lambda*N}}{\frac{10}{\lambda*N}} \le \frac{1-\frac{100}{\lambda*N}}{\frac{10}{\lambda*N}}) \approx 1 - F(\frac{1-\frac{100}{\lambda*N}}{\frac{10}{\lambda*N}}) = 1-F(3,3*N-10)$
 
