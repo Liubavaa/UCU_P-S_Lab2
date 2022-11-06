@@ -96,10 +96,11 @@ message_generator <- function(N) {
 messages <- message_generator(N)
 codewords <- (messages %*% G) %% 2
 ```
-#### Generate random errors; do not forget that they occur with probability \(p\)! Next, generate the received messages
+#### Generate random errors; do not forget that they occur with probability \(p\)! Next, generate the received messages. The following steps include detecting the errors in the received messages, correcting them, and then decoding the obtained messages. After this, you can continue with calculating all the quantities of interest
 
 ```{r}
 transmit_message = function() {
+    # generate errors
     generate_errors <- function(codewords) {
     output = matrix(, nrow = N, ncol = 7)
     for (i in 1:N) {
@@ -171,8 +172,6 @@ print(abs(process(1000) - expectation))
 
 ```
 
-The next steps include detecting the errors in the received messages, correcting them, and then decoding the obtained messages. After this, you can continue with calculating all the quantities of interest
-
 ```{r}
 # calculate the deviation
 correct_messages_amount = sum(error_amount == 0)
@@ -187,7 +186,7 @@ n = ceiling(deviation/(0.5 * 0.0009)) # 1112
 hist(error_amount, col="red", xlab="The amount of errors in message", ylab="Frequency", breaks="FD", main="Distribution of errors")
 ```
 
-__Do not forget to include several sentences summarizing your work and the conclusions you have made!__ 
+#### Due to the specification of a dataset and the outcome of the experiments, the distribution is close to binomial (take a look on the values of bars 1-4 ), but because of fixing the errors, the given distribution does not fit into any of the known distributions.####
 
 
 ### Task 2. 
